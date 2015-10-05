@@ -4,6 +4,8 @@
  */
 package com.game.abstr;
 
+import com.game.meta.Item;
+
 /**
  * Táto abstraktná trieda reprezentuje Item.
  * Využíva metódy na nastavenie a vrátenie názvu a opisu predmetu.
@@ -29,6 +31,7 @@ public abstract class AbstractItem implements Item {
      *
      * @param name Meno objektu
      */
+    @Override
     public void setName(String name) throws NullPointerException {
         if (name != null)
             this.name = name;

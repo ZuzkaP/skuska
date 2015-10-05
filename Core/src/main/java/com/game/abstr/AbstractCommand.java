@@ -4,6 +4,8 @@
  */
 package com.game.abstr;
 
+import com.game.meta.Command;
+
 /**
  * Toto je abstraktná trieda, ktorá reprezentuje Command. 
  * Využíva metódy nastavenia a vrátenia opisu a názvu príkazu.
