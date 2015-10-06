@@ -26,7 +26,7 @@ public class MethodChainingModelCreator implements IModelBuilder {
             .room()
                 .name("Mala miestnost")
                 .description("Si sam v malej miestnosti")
-                .exit("sever", "Velka miestnost")
+                .exit("north", "Velka miestnost")
                 .roomItem()
                     .name("Axe")
                     .description("Little axe.")

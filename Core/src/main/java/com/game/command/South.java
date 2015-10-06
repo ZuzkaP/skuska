@@ -6,6 +6,7 @@ package com.game.command;
 
 
 import com.game.abstr.AbstractCommand;
+import com.game.impl.RoomImpl;
 import com.game.meta.Game;
 import com.game.meta.GameState;
 
@@ -42,11 +43,13 @@ public class South extends AbstractCommand {
         if (game.getCurrentRoom().getSouth() != null) {
             if (game.getCurrentRoom().getSouth().getName() == null) {
                 if (game.getCurrentRoom().getItem("mina") == null && game.getCurrentRoom().getItem("zombie") == null &&
-                        game.getCurrentRoom().getItem("kostlivec") == null && game.getCurrentRoom().getItem("boss1") == null &&
-                        game.getCurrentRoom().getItem("boss2") == null && game.getCurrentRoom().getItem("boss3") == null &&
-                        game.getCurrentRoom().getItem("finalboss") == null) {
+                        game.getCurrentRoom().getEntity("kostlivec") == null && game.getCurrentRoom().getEntity("boss1") == null &&
+                        game.getCurrentRoom().getEntity("boss2") == null && game.getCurrentRoom().getEntity("boss3") == null &&
+                        game.getCurrentRoom().getEntity("finalboss") == null) {
                     // presun sa na vychod
                     game.setCurrentRoom(game.getCurrentRoom().getSouth());
+                    ((RoomImpl)game.getCurrentRoom()).show(game.getUI());
+
                 } else
                     game.setGameState(GameState.GAMEOVER);
             } else

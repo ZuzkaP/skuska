@@ -7,6 +7,7 @@ package com.game.impl;
 import com.game.meta.Entity;
 import com.game.meta.Item;
 import com.game.meta.Room;
+import com.game.meta.UserInterface;
 
 import java.util.ArrayList;
 
@@ -134,63 +135,62 @@ public class RoomImpl implements Room {
         return west;
     }
 
-    /**
-     * Táto metóda slúži na vypísanie opisu miestností spolu s všetkými
-     * predmetmi, ktoré sa v miestnosti nachádzajú a taktiež vypísaním všetkých
-     * možných východov z tejto miestnosti.
-     *
-     * @param arg0 Užívateľské rozhranie
-     */
-//    @Override
-//    public void show(UserInterface arg0) {
-//        // vypis description
-//        if (this.description != null)
-//            arg0.print(getDescription());
-//
-//        arg0.print("\n\nMozne vychody z miestnosti:\n");
-//
-//        // string
-//        String out = new String();
-//
-//        // pridaj miestnosti
-//        if (this.south != null)
-//            out += "juh" + ", ";
-//        if (this.north != null)
-//            out += "sever" + ", ";
-//        if (this.east != null)
-//            out += "vychod" + ", ";
-//        if (this.west != null)
-//            out += "zapad" + ", ";
-//
-//        // konvertuj na pole
-//        char[] Vychody = out.toCharArray();
-//
-//        // zisti dlzku retazca
-//        int len = out.length();
-//
-//        // poslednu ciarku prepis na medzeru
-//        if (Vychody.length > 2)
-//            Vychody[len - 2] = ' ';
-//
-//        // zapis vysledok spat do stringu
-//        out = new String(Vychody);
-//
-//        // vypis vychody
-//        arg0.print(out + "\n\n");
-//
-//        // pozbieraj predmety v miestnosti
-//        if (items.isEmpty())
-//            arg0.print("Nevidis nic zvlastneho.\n");
-//        else {
-//            arg0.print("Vidis :\n");
-//
-//            // vypisuj predmety
-//            for (int i = 0; i < items.size(); i++)
-//                arg0.print(items.get(i).getName() + "\n");
-//        }
-//
-//        arg0.print("\n");
-//    }
+//    /**
+//     * Táto metóda slúži na vypísanie opisu miestností spolu s všetkými
+//     * predmetmi, ktoré sa v miestnosti nachádzajú a taktiež vypísaním všetkých
+//     * možných východov z tejto miestnosti.
+//     *
+//     * @param arg0 Užívateľské rozhranie
+//     */
+    public void show(UserInterface arg0) {
+        // vypis description
+        if (this.description != null)
+            arg0.print(getDescription());
+
+        arg0.print("\n\nMozne vychody z miestnosti:\n");
+
+        // string
+        String out = new String();
+
+        // pridaj miestnosti
+        if (this.south != null)
+            out += "juh" + ", ";
+        if (this.north != null)
+            out += "sever" + ", ";
+        if (this.east != null)
+            out += "vychod" + ", ";
+        if (this.west != null)
+            out += "zapad" + ", ";
+
+        // konvertuj na pole
+        char[] Vychody = out.toCharArray();
+
+        // zisti dlzku retazca
+        int len = out.length();
+
+        // poslednu ciarku prepis na medzeru
+        if (Vychody.length > 2)
+            Vychody[len - 2] = ' ';
+
+        // zapis vysledok spat do stringu
+        out = new String(Vychody);
+
+        // vypis vychody
+        arg0.print(out + "\n\n");
+
+        // pozbieraj predmety v miestnosti
+        if (items.isEmpty())
+            arg0.print("Nevidis nic zvlastneho.\n");
+        else {
+            arg0.print("Vidis :\n");
+
+            // vypisuj predmety
+            for (int i = 0; i < items.size(); i++)
+                arg0.print(items.get(i).getName() + "\n");
+        }
+
+        arg0.print("\n");
+    }
 
     /**
      * Táto metóda slúži na vkladanie nových predmetov do miestnosti.

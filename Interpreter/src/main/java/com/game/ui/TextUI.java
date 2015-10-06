@@ -5,6 +5,7 @@
 package com.game.ui;
 
 import com.game.impl.GameImpl;
+import com.game.impl.RoomImpl;
 import com.game.meta.Game;
 import com.game.meta.GameState;
 import com.game.meta.UserInterface;
@@ -66,6 +67,8 @@ public class TextUI implements UserInterface {
     public void loop(Game arg0) {
         GameImpl game = (GameImpl) arg0;
         this.game = game;
+
+        ((RoomImpl)game.getCurrentRoom()).show(this);
         while (game.getGameState() == GameState.PLAYING) {
             Scanner reader = new Scanner(System.in);
             print(prefix);
