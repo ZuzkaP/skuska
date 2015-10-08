@@ -40,7 +40,7 @@ public class East extends AbstractCommand {
 
         // da sa ist na vychod ?
         if (game.getCurrentRoom().getEast() != null)
-            if (game.getCurrentRoom().getEast().getName() == null)
+            if (game.getCurrentRoom().getEast().getName() != null)
                 if (game.getCurrentRoom().getItem("mina") == null && game.getCurrentRoom().getItem("zombie") == null &&
                         game.getCurrentRoom().getEntity("kostlivec") == null && game.getCurrentRoom().getEntity("boss1") == null &&
                         game.getCurrentRoom().getEntity("boss2") == null && game.getCurrentRoom().getEntity("boss3") == null &&
@@ -51,7 +51,7 @@ public class East extends AbstractCommand {
                 } else
                     game.setGameState(GameState.GAMEOVER);
             else {
-                System.out.println("Miestnost je zamknuta.\nNa odomknutie potrebujes : " + game.getCurrentRoom().getEast().getName() + ".\n\n");
+                System.out.println("Miestnost je zamknuta.\nNa odomknutie potrebujes kluc od: " + game.getCurrentRoom().getEast().getName() + ".\n\n");
             }
         else
             // vypis chybu

@@ -10,7 +10,13 @@ public class GameInterpreter {
     private IModelBuilder builder;
     public GameInterpreter(IModelBuilder builder) {
         this.builder = builder;
-        init();
+        try {
+            init();
+        }
+        catch(Throwable e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
 
     private void init() {

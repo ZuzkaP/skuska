@@ -1,6 +1,7 @@
 package com.game;
 
-import com.game.dsl.model.MethodChainingModelCreator;
+import com.game.dsl1.model.MethodChainingModelCreator;
+import com.game.dsl1.model.NestedFunctionsModelCreator;
 import com.game.interpreter.GameInterpreter;
 
 /**

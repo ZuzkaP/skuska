@@ -1,4 +1,4 @@
-package com.game.dsl.builder;
+package com.game.dsl1.builder;
 
 import com.game.builder.IDSLBuilder;
 import com.game.impl.BackpackImpl;

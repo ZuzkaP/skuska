@@ -1,7 +1,8 @@
-package com.game.dsl.builder;
+package com.game.dsl1.builder;
 
 import com.game.builder.BuilderFactory;
 import com.game.builder.IDSLBuilder;
+import com.game.impl.ExitImpl;
 import com.game.impl.GameImpl;
 import com.game.impl.RoomImpl;
 import com.game.meta.*;
@@ -71,37 +72,21 @@ public class Builder implements IDSLBuilder, BuilderFactory<Game>  {
             }
         }
 
-        for(Room room : instance.roomExits.keySet()) {
-            room.setName(null);
-        }
+//        for(Room room : instance.roomExits.keySet()) {
+//            room.setName(null);
+//        }
     }
 
     private void addRoom() {
         instance.roomExits.put(instance.lastRoom, instance.exits);
+        RoomImpl.addRoom(instance.lastRoom);
     }
 
     private void assignExits(Room room, Map<String, String> dirsAndRooms) {
         for(String exit : dirsAndRooms.keySet()) {
             Room refRoom = getRooomByName(dirsAndRooms.get(exit));
             if(refRoom != null) {
-                // N S E W
-                switch(exit.toLowerCase()) {
-                    case "north":
-                        room.setExits(refRoom, null, null, null);
-                        break;
-
-                    case "south":
-                        room.setExits(null, refRoom, null, null);
-                        break;
-
-                    case "east":
-                        room.setExits(null, null, refRoom, null);
-                        break;
-
-                    case "west":
-                        room.setExits(null, null, null, refRoom);
-                        break;
-                }
+                room.setExits(new ExitImpl(refRoom.getName(),exit.toLowerCase()));
             }
         }
     }

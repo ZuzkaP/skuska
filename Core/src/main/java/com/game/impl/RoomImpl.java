@@ -4,12 +4,11 @@
  */
 package com.game.impl;
 
-import com.game.meta.Entity;
-import com.game.meta.Item;
-import com.game.meta.Room;
-import com.game.meta.UserInterface;
+import com.game.meta.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Táto trieda je konkrétnou implementáciou rozhrania Room a RoomNameSet, pričom
@@ -20,12 +19,11 @@ import java.util.ArrayList;
  */
 public class RoomImpl implements Room {
     // data
+    //                 key je nazov
+    public static HashMap<String, Room> mapOfRooms;
     private String description;
     private String nazov;
-    private Room south;
-    private Room north;
-    private Room west;
-    private Room east;
+    private HashMap<String,String> exits;
     private final ArrayList<Item> items;
     private final ArrayList<Entity> entities;
 
@@ -58,71 +56,56 @@ public class RoomImpl implements Room {
         // novy description
         this.description = description;
 
-        // inicializuj pointery
-        south = north = west = east = null;
-
         // inicializuj items
         items = new ArrayList<>();
         entities = new ArrayList<>();
     }
 
-    /**
-     * Táto metóda slúži na nastavenie referencií jednotlivých miestností, ktoré
-     * predstavujú možné východy z miestnosti.
-     *
-     * @param north Referencia na severnú miestnosť
-     * @param south Referencia na južnú miestnosť
-     * @param east  Referencia na východnú miestnosť
-     * @param west  Referencia na západnú miestnosť
-     */
+    public static void addRoom(Room room){
+        if(mapOfRooms == null)
+            mapOfRooms = new HashMap<>();
+        mapOfRooms.put(room.getName(), room);
+    }
+
+//    /**
+//     * Táto metóda slúži na nastavenie referencií jednotlivých miestností, ktoré
+//     * predstavujú možné východy z miestnosti.
+//     *
+//     * @param north Referencia na severnú miestnosť
+//     * @param south Referencia na južnú miestnosť
+//     * @param east  Referencia na východnú miestnosť
+//     * @param west  Referencia na západnú miestnosť
+//     */
     @Override
-    public void setExits(Room north, Room south, Room east, Room west) {
-        if (north != null) {
-            this.north = north;
-        }
-        if (south != null) {
-            this.south = south;
-        }
-        if (east != null) {
-            this.east = east;
-        }
-        if (west != null) {
-            this.west = west;
+    public void setExits(Exit... exits1) {//Room north, Room south, Room east, Room west
+        if(exits == null)
+            exits = new HashMap<>();
+        for(Exit exit: exits1){
+            this.exits.put(exit.getLocation().toLowerCase(), exit.getName());
         }
     }
 
-    /**
-     * Táto metóda vráti referenciu na Room, pričom reprezentuje miestnosť
-     * nachádzajúcu sa na severe.
-     *
-     * @return miestnosť na severe.
-     */
     @Override
     public Room getNorth() {
-        return north;
+        return getRoomByLocation("north");
     }
 
-    /**
-     * Táto metóda vráti referenciu na Room, pričom reprezentuje miestnosť
-     * nachádzajúcu sa na juhu.
-     *
-     * @return miestnosť na juhu.
-     */
     @Override
     public Room getSouth() {
-        return south;
+        return getRoomByLocation("south");
     }
 
-    /**
-     * Táto metóda vráti referenciu na Room, pričom reprezentuje miestnosť
-     * nachádzajúcu sa na východe.
-     *
-     * @return miestnosť na východe.
-     */
     @Override
     public Room getEast() {
-        return east;
+        return getRoomByLocation("east");
     }
+
+    @Override
+    public Room getWest() {
+        return getRoomByLocation("west");
+    }
+
+
 
     /**
      * Táto metóda vráti referenciu na Room, pričom reprezentuje miestnosť
@@ -131,8 +114,10 @@ public class RoomImpl implements Room {
      * @return miestnosť na západe.
      */
     @Override
-    public Room getWest() {
-        return west;
+    public Room getRoomByLocation(String location) {
+        if(mapOfRooms!=null && exits!=null)
+            return mapOfRooms.get(exits.get(location.toLowerCase()));
+        return null;
     }
 
 //    /**
@@ -153,14 +138,18 @@ public class RoomImpl implements Room {
         String out = new String();
 
         // pridaj miestnosti
-        if (this.south != null)
-            out += "juh" + ", ";
-        if (this.north != null)
-            out += "sever" + ", ";
-        if (this.east != null)
-            out += "vychod" + ", ";
-        if (this.west != null)
-            out += "zapad" + ", ";
+
+        if(exits != null)
+        for(String location : exits.keySet()){
+            if (location.toLowerCase().equals("south"))
+                out += "juh" + ", ";
+            if (location.toLowerCase().equals("north"))
+                out += "sever" + ", ";
+            if (location.toLowerCase().equals("east"))
+                out += "vychod" + ", ";
+            if (location.toLowerCase().equals("west"))
+                out += "zapad" + ", ";
+        }
 
         // konvertuj na pole
         char[] Vychody = out.toCharArray();

@@ -2,7 +2,7 @@ package com.game.meta;
 
 public interface Room extends Named {
 
-    void setExits(Room north, Room south, Room east, Room west);
+    void setExits(Exit... exits);
 
     Room getNorth();
 
@@ -11,6 +11,8 @@ public interface Room extends Named {
     Room getEast();
 
     Room getWest();
+
+    Room getRoomByLocation(String location);
 
     void addItem(Item item);
 

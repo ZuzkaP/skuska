@@ -40,8 +40,12 @@ public class Prikazy extends AbstractCommand {
         GameImpl temp = (GameImpl) game;
 
         for (int i = 0; i < temp.getParser().getCommands().size(); i++) {
-            System.out.println(temp.getParser().getCommands().get(i).getName() + "\n");
-            System.out.println(temp.getParser().getCommands().get(i).getDescription() + "\n\n");
+            String info= temp.getParser().getCommands().get(i).getName();
+            if(info.length() >6)
+                info += " \t- ";
+            else
+                info +=" \t\t- ";
+            System.out.println(info+temp.getParser().getCommands().get(i).getDescription());
         }
 
         System.out.println("\n\n");

@@ -41,7 +41,7 @@ public class South extends AbstractCommand {
 
         // da sa ist na vychod ?
         if (game.getCurrentRoom().getSouth() != null) {
-            if (game.getCurrentRoom().getSouth().getName() == null) {
+            if (game.getCurrentRoom().getSouth().getName() != null) {
                 if (game.getCurrentRoom().getItem("mina") == null && game.getCurrentRoom().getItem("zombie") == null &&
                         game.getCurrentRoom().getEntity("kostlivec") == null && game.getCurrentRoom().getEntity("boss1") == null &&
                         game.getCurrentRoom().getEntity("boss2") == null && game.getCurrentRoom().getEntity("boss3") == null &&
@@ -53,7 +53,7 @@ public class South extends AbstractCommand {
                 } else
                     game.setGameState(GameState.GAMEOVER);
             } else
-                System.out.println("Miestnost je zamknuta.\nNa odomknutie potrebujes : " + game.getCurrentRoom().getSouth().getName() + ".\n\n");
+                System.out.println("Miestnost je zamknuta.\nNa odomknutie potrebujes kluc od: " + game.getCurrentRoom().getSouth().getName() + ".\n\n");
         } else
             System.out.println("Tadial sa ist neda.\n\n");
     }
