@@ -13,7 +13,7 @@ import com.game.meta.Useable;
  * Tento príkaz slúži na volanie metódy use rozhranie Useable, pričom podmienkou
  * je, že daný predmet musí byť inštanciou rozhrania Useable.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Use extends AbstractCommand {
     /**

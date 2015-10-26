@@ -1,7 +1,7 @@
 package com.game.meta;
 
 /**
- * Created by Tomáš on 1.10.2015.
+ * Created by Zuzka on 1.10.2015.
  */
 public interface Command extends Named {
     /**

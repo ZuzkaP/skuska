@@ -7,7 +7,7 @@ import com.game.abstr.AbstractItem;
 import com.game.meta.*;
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Key extends AbstractItem
     implements Moveable, Useable

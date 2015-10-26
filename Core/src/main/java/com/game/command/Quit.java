@@ -12,7 +12,7 @@ import com.game.meta.GameState;
 /**
  * Tento príkaz slúži na ukončenie hrania a vrátenia do menu hry.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Quit extends AbstractCommand {
     /**

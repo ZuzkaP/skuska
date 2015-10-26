@@ -13,7 +13,7 @@ import com.game.meta.Useable;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Generator  extends AbstractItem
     implements Useable

@@ -12,7 +12,7 @@ import com.game.impl.RoomImpl;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class GoldKey extends AbstractItem
     implements Moveable, Useable

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Juraj on 8.10.2015.
+ * Created by Zuzka on 8.10.2015.
  */
 public class ExitImpl implements Exit {
-    private String name;
-    private String location;
+    private String name;    //kam smeruje
+    private String location; //location in room
 
     public ExitImpl(String name, String location) {
         this.name = name;

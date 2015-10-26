@@ -12,7 +12,7 @@ import com.game.meta.Game;
  * Tento príkaz slúži na preskúmanie daného predmetu, ktorý je vstupným parametrom
  * metódy execute.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Explore extends AbstractCommand {
     /**

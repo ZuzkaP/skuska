@@ -11,7 +11,7 @@ import com.game.meta.*;
 import com.game.impl.RoomImpl;
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class SilverKey extends AbstractItem
     implements Moveable, Useable

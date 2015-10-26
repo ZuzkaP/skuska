@@ -10,7 +10,7 @@ import com.game.abstr.AbstractItem;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class DiamondChest extends AbstractItem
 {

@@ -11,7 +11,7 @@ import com.game.impl.GameImpl;
 /**
  * Tento príkaz slúži na vypísanie všetkých príkazov, ktoré sú v hre implementované.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Prikazy extends AbstractCommand {
     /**

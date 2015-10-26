@@ -10,7 +10,7 @@ import com.game.meta.*;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class DiamondKey extends AbstractItem
     implements Moveable, Useable

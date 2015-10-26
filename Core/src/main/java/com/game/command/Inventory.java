@@ -12,7 +12,7 @@ import com.game.impl.BackpackImpl;
  * Tento príkaz slúži na vypísanie všetkých predmetov, ktoré sa nachádzajú v
  * batohu.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Inventory extends AbstractCommand {
     /**

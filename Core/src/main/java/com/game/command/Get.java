@@ -14,7 +14,7 @@ import com.game.item.Shells;
  * Tento príkaz slúži pri braní predmetov z miestnosti, pričom podmienkou je,
  * aby daný predmet implementoval rozhranie Moveable.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Get extends AbstractCommand {
     /**

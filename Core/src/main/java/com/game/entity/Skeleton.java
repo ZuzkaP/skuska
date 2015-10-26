@@ -10,7 +10,7 @@ import com.game.abstr.AbstractEntity;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Skeleton extends AbstractEntity
 {

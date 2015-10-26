@@ -11,7 +11,7 @@ import com.game.meta.*;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Princess extends AbstractEntity
     implements Moveable, Useable

@@ -8,7 +8,7 @@ import com.game.abstr.AbstractItem;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Chest extends AbstractItem
 {

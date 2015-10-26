@@ -12,7 +12,7 @@ import com.game.entity.Princess;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class NanoSword extends AbstractItem
     implements Moveable, Useable

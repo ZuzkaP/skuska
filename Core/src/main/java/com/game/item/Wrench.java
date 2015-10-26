@@ -9,7 +9,7 @@ import com.game.abstr.AbstractItem;
 import com.game.meta.*;
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Wrench extends AbstractItem
     implements Moveable, Useable

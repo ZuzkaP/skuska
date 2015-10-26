@@ -11,19 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Táto trieda je konkrétnou implementáciou rozhrania Room a RoomNameSet, pričom
- * táto trieda je definovaná pomocou názvu a opisu miestnosti. Tiež obsiahuje 4
- * referencie na všetky možné východy z miestnosti.
+ * Táto trieda je konkrétnou implementáciou rozhrania Room a RoomNameSet,
+ * pričom táto trieda je definovaná pomocou názvu a opisu miestnosti. Tiež
+ * obsiahuje 4 referencie na všetky možné východy z miestnosti.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class RoomImpl implements Room {
+
     // data
     //                 key je nazov
-    public static HashMap<String, Room> mapOfRooms;
+
+    private HashMap<String, Room> mapOfRooms;
     private String description;
     private String nazov;
-    private HashMap<String,String> exits;
+    private HashMap<String, String> exits;
     private final ArrayList<Item> items;
     private final ArrayList<Entity> entities;
 
@@ -32,8 +34,8 @@ public class RoomImpl implements Room {
     }
 
     /**
-     * Tento konštruktor vytvorí novú inštanciu tejto triedy, pričom vstupným
-     * parametrom je iba reťazec predtavujúci opis miestnosti.
+     * Tento konštruktor vytvorí novú inštanciu tejto triedy, pričom
+     * vstupným parametrom je iba reťazec predtavujúci opis miestnosti.
      *
      * @param description Opis miestnosti
      */
@@ -42,11 +44,11 @@ public class RoomImpl implements Room {
     }
 
     /**
-     * Tento konštruktor vytvorí novú inštanciu tejto triedy, pričom vstupným
-     * parametrom je reťazec predstavujúci názov miestnosti a reťazec
-     * predstavujúci opis miestnosti.
+     * Tento konštruktor vytvorí novú inštanciu tejto triedy, pričom
+     * vstupným parametrom je reťazec predstavujúci názov miestnosti a
+     * reťazec predstavujúci opis miestnosti.
      *
-     * @param nazov       Názov miestnosti
+     * @param nazov Názov miestnosti
      * @param description Opis miestnosti
      */
     public RoomImpl(String nazov, String description) {
@@ -61,11 +63,20 @@ public class RoomImpl implements Room {
         entities = new ArrayList<>();
     }
 
-    public static void addRoom(Room room){
-        if(mapOfRooms == null)
-            mapOfRooms = new HashMap<>();
-        mapOfRooms.put(room.getName(), room);
+    //JD - preco je metoda static?
+//    public static void addRoom(Room room){
+//        if(mapOfRooms == null)
+//            mapOfRooms = new HashMap<>();
+//        mapOfRooms.put(room.getName(), room);
+//    }
+    @Override
+    public void addRoom(Room r) {
+        if (getMapOfRooms() == null) {
+            setMapOfRooms(new HashMap<String, Room>());
+        }
+        getMapOfRooms().put(r.getName(), r);
     }
+    //povodny kod
 
 //    /**
 //     * Táto metóda slúži na nastavenie referencií jednotlivých miestností, ktoré
@@ -78,9 +89,10 @@ public class RoomImpl implements Room {
 //     */
     @Override
     public void setExits(Exit... exits1) {//Room north, Room south, Room east, Room west
-        if(exits == null)
+        if (exits == null) {
             exits = new HashMap<>();
-        for(Exit exit: exits1){
+        }
+        for (Exit exit : exits1) {
             this.exits.put(exit.getLocation().toLowerCase(), exit.getName());
         }
     }
@@ -105,20 +117,29 @@ public class RoomImpl implements Room {
         return getRoomByLocation("west");
     }
 
-
-
     /**
      * Táto metóda vráti referenciu na Room, pričom reprezentuje miestnosť
      * nachádzajúcu sa na západe.
      *
-     * @return miestnosť na západe.
+     * @param location
+     * @return miestnost na location.
      */
     @Override
     public Room getRoomByLocation(String location) {
-        if(mapOfRooms!=null && exits!=null)
-            return mapOfRooms.get(exits.get(location.toLowerCase()));
+        if (getMapOfRooms() != null && exits != null) {
+            return getMapOfRooms().get(exits.get(location.toLowerCase()));
+        }
         return null;
     }
+    
+    //doplneny getter na konkretnu miestnost z listu podla mena
+    //vrati miestnost so zadanym menom
+    @Override
+    public Room getRoomByName(String name){
+        return getMapOfRooms().get(name);
+    }
+    
+    
 
 //    /**
 //     * Táto metóda slúži na vypísanie opisu miestností spolu s všetkými
@@ -129,8 +150,9 @@ public class RoomImpl implements Room {
 //     */
     public void show(UserInterface arg0) {
         // vypis description
-        if (this.description != null)
+        if (this.description != null) {
             arg0.print(getDescription());
+        }
 
         arg0.print("\n\nMozne vychody z miestnosti:\n");
 
@@ -138,17 +160,21 @@ public class RoomImpl implements Room {
         String out = new String();
 
         // pridaj miestnosti
-
-        if(exits != null)
-        for(String location : exits.keySet()){
-            if (location.toLowerCase().equals("south"))
-                out += "juh" + ", ";
-            if (location.toLowerCase().equals("north"))
-                out += "sever" + ", ";
-            if (location.toLowerCase().equals("east"))
-                out += "vychod" + ", ";
-            if (location.toLowerCase().equals("west"))
-                out += "zapad" + ", ";
+        if (exits != null) {
+            for (String location : exits.keySet()) {
+                if (location.toLowerCase().equals("south")) {
+                    out += "juh" + ", ";
+                }
+                if (location.toLowerCase().equals("north")) {
+                    out += "sever" + ", ";
+                }
+                if (location.toLowerCase().equals("east")) {
+                    out += "vychod" + ", ";
+                }
+                if (location.toLowerCase().equals("west")) {
+                    out += "zapad" + ", ";
+                }
+            }
         }
 
         // konvertuj na pole
@@ -158,8 +184,9 @@ public class RoomImpl implements Room {
         int len = out.length();
 
         // poslednu ciarku prepis na medzeru
-        if (Vychody.length > 2)
+        if (Vychody.length > 2) {
             Vychody[len - 2] = ' ';
+        }
 
         // zapis vysledok spat do stringu
         out = new String(Vychody);
@@ -168,14 +195,15 @@ public class RoomImpl implements Room {
         arg0.print(out + "\n\n");
 
         // pozbieraj predmety v miestnosti
-        if (items.isEmpty())
+        if (items.isEmpty()) {
             arg0.print("Nevidis nic zvlastneho.\n");
-        else {
+        } else {
             arg0.print("Vidis :\n");
 
             // vypisuj predmety
-            for (int i = 0; i < items.size(); i++)
+            for (int i = 0; i < items.size(); i++) {
                 arg0.print(items.get(i).getName() + "\n");
+            }
         }
 
         arg0.print("\n");
@@ -212,9 +240,9 @@ public class RoomImpl implements Room {
     }
 
     /**
-     * Táto metóda slúži na odstránenie daného predmetu z miestnosti, pričom
-     * vstupným parametrom je referencia na predmet, ktorý má byť z miestnosti
-     * vymazaný.
+     * Táto metóda slúži na odstránenie daného predmetu z miestnosti,
+     * pričom vstupným parametrom je referencia na predmet, ktorý má byť z
+     * miestnosti vymazaný.
      *
      * @param item Referencia na predmet, ktorý mý byť vymazaný
      */
@@ -232,9 +260,9 @@ public class RoomImpl implements Room {
 
     @Override
     public Entity getEntity(String name) {
-        if(name != null) {
-            for(Entity entity : entities) {
-                if(entity.getName().equals(name)) {
+        if (name != null) {
+            for (Entity entity : entities) {
+                if (entity.getName().equals(name)) {
                     return entity;
                 }
             }
@@ -244,7 +272,7 @@ public class RoomImpl implements Room {
 
     @Override
     public void removeEntity(Entity entity) {
-        if(entity != null) {
+        if (entity != null) {
             entities.remove(entity);
         }
     }
@@ -287,5 +315,19 @@ public class RoomImpl implements Room {
     @Override
     public String getDescription() {
         return description;
+    }
+
+    /**
+     * @return the mapOfRooms
+     */
+    public HashMap<String, Room> getMapOfRooms() {
+        return mapOfRooms;
+    }
+
+    /**
+     * @param mapOfRooms the mapOfRooms to set
+     */
+    public void setMapOfRooms(HashMap<String, Room> mapOfRooms) {
+        this.mapOfRooms = mapOfRooms;
     }
 }

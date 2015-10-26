@@ -12,7 +12,7 @@ import com.game.meta.GameState;
 /**
  * Tento príkaz slúži na prechod z aktuálnej miestnosti do východného východu.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class East extends AbstractCommand {
     /**

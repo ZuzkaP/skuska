@@ -10,7 +10,7 @@ import com.game.meta.Game;
 import com.game.meta.Moveable;
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Shells extends AbstractItem
     implements Moveable

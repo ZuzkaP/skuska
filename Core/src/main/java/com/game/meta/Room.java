@@ -1,5 +1,8 @@
 package com.game.meta;
 
+import com.game.impl.RoomImpl;
+import java.util.HashMap;
+
 public interface Room extends Named {
 
     void setExits(Exit... exits);
@@ -13,6 +16,8 @@ public interface Room extends Named {
     Room getWest();
 
     Room getRoomByLocation(String location);
+    
+    Room getRoomByName(String name);
 
     void addItem(Item item);
 
@@ -29,4 +34,10 @@ public interface Room extends Named {
     void setName(String name);
 
     void setDescription(String description);
+
+    public void addRoom(Room r);
+    
+    public HashMap<String, Room> getMapOfRooms();
+    
+    public void setMapOfRooms(HashMap<String, Room> mapOfRooms);
 }

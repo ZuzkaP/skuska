@@ -1,5 +1,6 @@
 package com.game.impl;
 
+
 import com.game.command.*;
 import com.game.meta.Command;
 import com.game.meta.Parser;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Tomáš on 5.10.2015.
+ * Created by Zuzka on 5.10.2015.
  */
 public class ParserImpl implements Parser {
     /**
@@ -16,6 +17,7 @@ public class ParserImpl implements Parser {
      * vytvorí nový zoznam reprezentujúci zoznam príkazov a zároveò sa pridajú
      * všetky známe príkazy do zoznamu.
      */
+    private final ArrayList<Command> prikazy;
     public ParserImpl() {
         prikazy = new ArrayList<>();
         prikazy.add(new Version("VERZIA", "Zobrazi informacie o autovori."));
@@ -34,7 +36,7 @@ public class ParserImpl implements Parser {
         prikazy.add(new TurnOn("VYPNI", "Vypni generator."));
     }
 
-    private final ArrayList<Command> prikazy;
+
 
     /**
      * Táto metóda na základe vstupného parametra vyh¾adá Command, ktorý je

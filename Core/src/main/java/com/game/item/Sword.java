@@ -9,7 +9,7 @@ import com.game.meta.*;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Sword extends AbstractItem
     implements Moveable, Useable

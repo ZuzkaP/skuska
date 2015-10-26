@@ -10,7 +10,7 @@ import com.game.meta.Game;
 /**
  * Tento príkaz slúži na vypísanie informácií o autorovi.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Version extends AbstractCommand {
     /**
@@ -36,6 +36,6 @@ public class Version extends AbstractCommand {
             return;
         }
 
-        System.out.println("Tomas Blanarik\n" + "tomas.blanarik@gmail.com\n" + "Version : 1.0a\n");
+        System.out.println("Zuzka Papalova\n" + "Zuzka.papalova@gmail.com\n" + "Version : 1.0a\n");
     }
 }

@@ -10,7 +10,7 @@ import com.game.meta.Game;
 /**
  * Tento príkaz slúži na vkladanie predmetov batohu do miestnosti.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Put extends AbstractCommand {
     /**

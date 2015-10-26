@@ -14,7 +14,7 @@ import java.util.List;
  * Táto trieda je konkrétna implementácia rozhrania Backpack, ktorá je definovaná
  * počtom predmetov, ktoré sa maximálne vojdu do batoha.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class BackpackImpl implements Backpack {
     // data

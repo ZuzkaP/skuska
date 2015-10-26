@@ -9,7 +9,7 @@ import com.game.impl.RoomImpl;
 import com.game.meta.*;
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Teleport  extends AbstractItem
     implements Moveable, Useable

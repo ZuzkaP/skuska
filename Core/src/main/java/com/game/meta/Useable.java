@@ -7,7 +7,7 @@ package com.game.meta;
 /**
  * Toto rozhranie slúži pri implementácii predmetov, ktoré majú vlastnosť, že
  * sú použíteľné, pričom sa využíva práve metóda use.
- * @author Bingo Player
+ * @author Zuzka
  */
 public interface Useable 
 {

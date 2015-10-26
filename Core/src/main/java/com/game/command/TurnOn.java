@@ -13,7 +13,7 @@ import com.game.item.Generator;
 /**
  * Tento príkaz slúži na zapínanie/vypínanie generátora v hre.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class TurnOn extends AbstractCommand {
     /**

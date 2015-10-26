@@ -7,10 +7,10 @@ package com.game.abstr;
 import com.game.meta.Entity;
 
 /**
- * Táto abstraktná trieda reprezentuje Item.
+ * Táto abstraktná trieda reprezentuje Entity.
  * Využíva metódy na nastavenie a vrátenie názvu a opisu predmetu.
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public abstract class AbstractEntity implements Entity {
 

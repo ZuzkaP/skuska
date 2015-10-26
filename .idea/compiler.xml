@@ -17,23 +17,38 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+      <profile default="false" name="Annotation profile for dsl1" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Core" />
-        <module name="DSL1" />
-        <module name="DSL2" />
-        <module name="Interpreter" />
+      </profile>
+      <profile default="false" name="Annotation profile for dsl2" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for interpreter" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for game-core" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="game-core" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="Core" target="1.7" />
-      <module name="DSL1" target="1.7" />
-      <module name="DSL2" target="1.7" />
-      <module name="Interpreter" target="1.7" />
-      <module name="TextGame" target="1.7" />
+    <bytecodeTargetLevel>
+      <module name="dsl1" target="1.7" />
+      <module name="dsl2" target="1.7" />
+      <module name="game-core" target="1.7" />
+      <module name="interpreter" target="1.7" />
+      <module name="textgame" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

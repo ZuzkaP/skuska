@@ -12,7 +12,7 @@ import com.game.meta.*;
  * je definovaná stavom hry. Obsahuje niekoľko členských premenných. Obsahuje
  * referencie na užívateľské rozhranie, parser, menu, aktuálnej miestnosti, batohu 
  * a vykresľovača.
- * @author Bingo Player
+ * @author Zuzka
  */
 public class GameImpl implements Game
 {
@@ -99,6 +99,7 @@ public class GameImpl implements Game
         // zobraz aktualne miestnosti
         if( room != null )
         {
+            room.setMapOfRooms(currentRoom.getMapOfRooms());
             currentRoom = room;
         }
         else 

@@ -11,7 +11,7 @@ import com.game.impl.RoomImpl;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class LockPick extends AbstractItem
     implements Moveable, Useable

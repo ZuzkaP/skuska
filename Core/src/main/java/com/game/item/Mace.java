@@ -8,7 +8,7 @@ import com.game.meta.*;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Mace extends AbstractItem
     implements Moveable, Useable

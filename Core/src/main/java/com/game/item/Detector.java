@@ -11,7 +11,7 @@ import com.game.meta.*;
 
 /**
  *
- * @author Bingo Player
+ * @author Zuzka
  */
 public class Detector extends AbstractItem
     implements Moveable, Useable

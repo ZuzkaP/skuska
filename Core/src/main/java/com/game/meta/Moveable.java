@@ -7,7 +7,7 @@ package com.game.meta;
 /**
  * Toto prázdne rozhranie slúži na rozlišovanie medzi jednotlivými Item-ami,
  * pričom táto vlastnosť znamená, že daný Item je prenášateľný.
- * @author Bingo Player
+ * @author Zuzka
  */
 public interface Moveable 
 {
